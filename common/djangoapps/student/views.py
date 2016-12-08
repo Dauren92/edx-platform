@@ -126,7 +126,7 @@ from openedx.core.djangoapps.programs.models import ProgramsApiConfig
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 from openedx.core.djangoapps.theming import helpers as theming_helpers
 from openedx.core.djangoapps.user_api.preferences import api as preferences_api
-from openedx.core.djangoapps.catalog.utils import get_programs
+from openedx.core.djangoapps.catalog.utils import get_programs_data
 
 
 log = logging.getLogger("edx.student")
@@ -210,7 +210,7 @@ def index(request, extra_context=None, user=AnonymousUser()):
     # getting all the programs from catalog
     if configuration_helpers.get_value("DISPLAY_PROGRAMS_ON_MARKETING_PAGES",
                                        settings.FEATURES.get("DISPLAY_PROGRAMS_ON_MARKETING_PAGES")):
-        programs_list = get_programs(user)
+        programs_list = get_programs_data(user)
 
     context["programs_list"] = programs_list
 

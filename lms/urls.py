@@ -425,6 +425,14 @@ urlpatterns += (
         name='student_progress',
     ),
 
+    url(
+        r'^programs/{}/about$'.format(
+            settings.PROGRAM_ID_PATTERN,
+        ),
+        'courseware.views.views.program_detail',
+        name='about_program',
+     ),
+
     # rest api for grades
     url(
         r'^api/grades/',

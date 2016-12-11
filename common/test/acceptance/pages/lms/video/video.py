@@ -636,6 +636,8 @@ class VideoPage(PageObject):
 
         language_selector = VIDEO_MENUS["language"] + ' li[data-lang-code="{code}"]'.format(code=code)
         language_selector = self.get_element_selector(language_selector)
+        hover_target = self.q(css=language_selector).results[0]
+        ActionChains(self.browser).move_to_element(hover_target).perform()
         self.wait_for_element_visibility(language_selector, 'language menu is visible')
         self.q(css=language_selector).first.click()
 

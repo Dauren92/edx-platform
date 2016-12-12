@@ -629,6 +629,9 @@ class VideoPage(PageObject):
         """
         self.wait_for_ajax()
 
+        # Yes, I feel unclean putting this in:
+        time.sleep(1)
+
         # mouse over to transcript button
         cc_button_selector = self.get_element_selector(VIDEO_BUTTONS["transcript_button"])
         element_to_hover_over = self.q(css=cc_button_selector).results[0]
@@ -889,7 +892,7 @@ class VideoPage(PageObject):
         Wait until captions rendered completely.
         """
         captions_rendered_selector = self.get_element_selector(CSS_CLASS_NAMES['captions_rendered'])
-        self.wait_for_element_presence(captions_rendered_selector, 'Captions Rendered')
+        self.wait_for_element_visibility(captions_rendered_selector, 'Captions Rendered')
 
     def wait_for_closed_captions(self):
         """

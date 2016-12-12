@@ -630,7 +630,7 @@ class VideoPage(PageObject):
         self.wait_for_ajax()
 
         # mouse over to transcript button
-        cc_button_selector = self.get_element_selector(VIDEO_BUTTONS["transcript"])
+        cc_button_selector = self.get_element_selector(VIDEO_BUTTONS["transcript_button"])
         element_to_hover_over = self.q(css=cc_button_selector).results[0]
         ActionChains(self.browser).move_to_element(element_to_hover_over).perform()
 
